@@ -21,4 +21,7 @@ module DatabaseInstanceMethods
   def delete
      DATABASE.execute("DELETE FROM #{table} WHERE id = #{@id};")
   end
+  
+  def hash
+  end
 end

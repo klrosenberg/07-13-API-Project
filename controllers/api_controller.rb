@@ -4,5 +4,7 @@ get "/api/assignments" do
 end
 
 get "/api/assignments/:id" do
-  json :foo => 'bar'
+  assignment = Assignment.find(params['id'])
+  @assignment = assignment.hash
+  json @assignments
 end

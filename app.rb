@@ -3,6 +3,8 @@ require "sinatra"
 require "sinatra/reloader"
 require "sinatra/json"
 
+set :bind, '192.168.1.47'
+
 # SQL/Database
 require "sqlite3"
 require_relative "database_setup.rb"
