@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignments</title>
+</head>
+<body>
+  <h2>Update Assignment</h2>
+  <h4>Please change the name and submit.</h4>
+  <form action="/update_assignment/save">
+    <input type="hidden" name="id" value="<%= @assignment.id %>">
+    <p><input type="text" placeholder="Date" name="date" value="<%= @assignment.date %>"></p>
+    <p><input type="text" placeholder="Assignment" name="name" value="<%= @assignment.name %>"></p>
+    <p><input type="text" placeholder="ABV" name="abv" value="<%= @beer.abv %>"></p>
+    <p><select name="github_link_id">>
+      <% GithubLink.all.each do |link| %>
+      <option value="<%= link.id %>" <%="selected" if link.id == @assignment.github_link_id%>><%= link.name %></option>
+      <% end %>
+    </select></p>
+    <p><select name="blog_link_id">>
+      <% BlogLink.all.each do |link| %>
+      <option value="<%= link.id %>" <%="selected" if link.id == @beer.blog_link_id%>><%= link.name %></option>
+      <% end %>
+    </select></p>
+    <p><input type="submit"></p>
+    <form>
+</body>
+</html>

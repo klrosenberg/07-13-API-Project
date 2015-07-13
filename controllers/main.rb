@@ -1,7 +1,6 @@
 # -----------------------------------------------------------------------------
-# List assignments in a table.
+# Menu
 # -----------------------------------------------------------------------------
-get "/assignments/list_assignments" do
-  @assignments = Assignment.chart
-  erb :"/assgnmentss/list_assignments"
+get "/home" do
+  erb :"/main/main"
 end

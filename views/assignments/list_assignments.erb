@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignments</title>
+</head>
+<body>
+  <h2>Assignments</h2>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Assignment</th>
+      <th>Description</th>
+      <th>Github Link</th>
+      <th>Blog Link</th>
+      <th>Students</th>
+    </tr>
+    <% @assignments.each do |assignment| %>
+    <tr>
+      <td><%= assignment['date'] %></td>
+      <td><%= assignment['assignment'] %></td>
+      <td><%= assignment['description'] %></td>
+      <td><%= assignment['github_link'] %></td>
+      <td><%= assignment['beer'] %></td>
+      <td><%= assignment['beer'] %></td>
+    </tr>
+  <% end %>
+  </table>
+  <br>
+</body>
+</html>
