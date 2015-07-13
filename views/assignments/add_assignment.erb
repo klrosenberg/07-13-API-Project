@@ -1,13 +1,6 @@
 <h2>
   Add Assignment
 </h2>
-
-<% if @error1 %>
-<p>Assignment was not saved. Assignments may only be added once.</p>
-<% end %>
-<% if @error2 %>
-<p>Please enter a value in each field.</p>
-<% end %>
 <h4>Please enter the name of the new assignment.</h4>
 <form action="/save_assignment">
   <p>Date</p>
@@ -15,20 +8,10 @@
   <p>Assignment name</p>
   <p><input type="text" placeholder="New assignment" name="name"></p>
   <p>Description</p>
-  <p><input type="text" placeholder="Descriptiom" name="description"></p>
+  <p><input type="text" placeholder="Description" name="description"></p>
   <p>Github Link</p>
-  <p><select name="github_link_id" value="">
-    <option >--------</option>
-    <% GithubLink.all.each do |link| %>
-    <option value="<%= link.id %>"><%= link.name %></option>
-    <% end %>
-  </select></p>
+  <p><input type="text" placeholder="Github Link" name="github"></p>
   <p>Blog Link</p>
-  <p><select name="blog_link_id" value="">
-    <option>--------</option>
-    <% BlogLink.all.each do |link| %>
-    <option value="<%= link.id %>"><%= link.name %></option>
-    <% end %>
-  </select></p>
+  <p><input type="text" placeholder="Blog Link" name="blog"></p>
   <input type="submit">
 </form>

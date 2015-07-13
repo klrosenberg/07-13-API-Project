@@ -10,8 +10,8 @@
       <th>Date</th>
       <th>Assignment</th>
       <th>Description</th>
-      <th>Github Link</th>
-      <th>Blog Link</th>
+      <th>Github</th>
+      <th>Blog</th>
       <th>Students</th>
     </tr>
     <% @assignments.each do |assignment| %>
@@ -19,9 +19,9 @@
       <td><%= assignment['date'] %></td>
       <td><%= assignment['assignment'] %></td>
       <td><%= assignment['description'] %></td>
-      <td><%= assignment['github_link'] %></td>
-      <td><%= assignment['beer'] %></td>
-      <td><%= assignment['beer'] %></td>
+      <td><%= assignment['github'] %></td>
+      <td><%= assignment['blog'] %></td>
+      <td><%= assignment['student_id'] %></td>
     </tr>
   <% end %>
   </table>

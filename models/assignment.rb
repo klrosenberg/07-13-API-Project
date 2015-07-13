@@ -6,7 +6,7 @@ class Assignment
   include DatabaseInstanceMethods
 
   attr_reader :id 
-  attr_accessor :date, :name, :description, :github_link_id, :blog_link_id, :student_id
+  attr_accessor :date, :name, :description, :github, :blog, :student_id
 
   # Instantaites a new instance of the Assignment Class.
   # 
@@ -18,8 +18,8 @@ class Assignment
     @date = options['date']
     @name = options['name']
     @description = options['description']
-    @github_link_id = options['github_link_id']
-    @blog_link_id = options['blog_link_id']
+    @github = options['github']
+    @blog = options['blog']
     @student_id = options['student_id']
   end
   
@@ -27,7 +27,7 @@ class Assignment
   #
   # Returns an Array of Hashes.
   def self.chart
-    DATABASE.execute("SELECT assignments.date, assignments.name AS assignment, github_links.link AS github, blog_links.name AS Blog, students.name AS students FROM assignments JOIN github_links ON assignments.github_link_id = github_links.id JOIN blog_links ON assignments.blog_link_id = blog_link.id ORDER BY assignments.date(dateColumn) DESC Limit 1;")
+    DATABASE.execute("SELECT assignments.date, assignments.name AS assignment, assignments.description, assignments.github, assignments.blog FROM assignments;")
   end
 
 end

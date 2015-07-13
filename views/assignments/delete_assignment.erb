@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignments</title>
+</head>
+<body>
+  <h2>Delete Assignment</h2>
+  <h4>Select the assignment to be deleted.</h4> 
+  <form action="/assignment_deleted">
+    <table>
+      <tr>
+        <th>Assignment</th>
+      </tr>
+      <tr>
+    <% Assignment.all.each do |assignment| %>
+        <td><input type="radio" name="id" value="<%= assignment.id %>"><%= assignment.name%></td>
+      </tr>
+    <% end %>
+  </table>
+    <p><input type="submit"></p>
+  </form> 
+<body>
+</html>
