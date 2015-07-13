@@ -19,7 +19,7 @@ end
 # -----------------------------------------------------------------------------
 get "/assignments/list_assignments" do
   @assignments = Assignment.chart
-  erb :"/assgnmentss/list_assignments"
+  erb :"/assignments/list_assignments"
 end
 
 # -----------------------------------------------------------------------------
