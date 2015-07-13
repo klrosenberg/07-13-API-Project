@@ -5,7 +5,7 @@ class Assignment
   extend DatabaseClassMethods
   include DatabaseInstanceMethods
 
-  attr_reader :id, 
+  attr_reader :id 
   attr_accessor :date, :name, :description, :github_link_id, :blog_link_id, :student_id
 
   # Instantaites a new instance of the Assignment Class.

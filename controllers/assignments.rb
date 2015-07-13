@@ -64,5 +64,5 @@ end
 # Returns erb associated with.
 # -----------------------------------------------------------------------------
 get "/assignments/:something" do
-  erb :"/assignmentss/#{params["something"]}"
+  erb :"/assignments/#{params["something"]}"
 end
