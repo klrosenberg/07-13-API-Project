@@ -65,7 +65,7 @@ module DatabaseClassMethods
   #
   # Returns an Array of objects.
   def where(column_name, id)
-     table_name = self.to_s.pluralize.underscore
+     table_name = self.to_s.tableize
      column_name = 
      results = DATABASE.execute("SELECT * FROM #{table_name} WHERE #{column_name} = #{id};")
      results_as_objects = []
@@ -73,5 +73,11 @@ module DatabaseClassMethods
        results_as_objects << self.new(result_hash)
      end
      return results_as_objects
+   end
+   
+   def hash
+     table_name = self.to_s.tableize
+     results = DATABASE.execute("SELECT * FROM #{table_name};")
+     return results
    end
  end

@@ -4,7 +4,6 @@
 get "/save_student" do
     Student.add({"name" => params['name']})
     erb :"students/added_student"
-  end
 end
 
 get "/students/update_student" do
@@ -29,7 +28,6 @@ get "/student_deleted" do
   @student = Student.find(params['id'])
   @beer_type.delete
   erb :"/students/student_deleted"
-  end
 end
 
 # -----------------------------------------------------------------------------

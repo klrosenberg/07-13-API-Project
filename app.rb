@@ -1,6 +1,7 @@
 require "pry"
 require "sinatra"
 require "sinatra/reloader"
+require "sinatra/json"
 
 # SQL/Database
 require "sqlite3"
@@ -17,3 +18,4 @@ require_relative "controllers/assignments.rb"
 require_relative "controllers/students.rb"
 require_relative "controllers/student_assignments.rb"
 require_relative "controllers/main.rb"
+require_relative "controllers/api_controller.rb"
