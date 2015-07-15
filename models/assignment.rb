@@ -22,7 +22,7 @@ class Assignment
     @blog = options['blog']
   end
   
-  # Join github links, blog links and students tables to assignments table.
+  # Chart assignments table.
   #
   # Returns an Array of Hashes.
   def self.chart

@@ -17,4 +17,8 @@ class Student
     @id = options['id']
     @name = options['name']
   end
+  
+  def self.chart
+    DATABASE.execute("SELECT students.name FROM students;")
+  end
 end

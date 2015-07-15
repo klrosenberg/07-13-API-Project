@@ -1,0 +1,9 @@
+<h2>Update Student</h2>
+
+<h4>Please change the name and submit. Otherwise go back to the main menu</h4>
+<form action="/update_student/save">
+  <input type="hidden" name="id" value="<%= @student.id %>">
+  <p><input type="text" placeholder="Name" name="name" value="<%= @student.name %>"></p>
+  <p><input type="submit"></p>
+</form>
+
