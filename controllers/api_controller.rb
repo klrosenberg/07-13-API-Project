@@ -4,7 +4,7 @@ get "/api/assignments" do
 end
 
 get "/api/assignments/:id" do
-  assignment = Assignment.find(params['id'])
-  @assignment = assignment.hash
-  json @assignments
+  @assignment = []
+  @assignment << Assignment.find(params["id"]).hash_object
+  json @assignment
 end

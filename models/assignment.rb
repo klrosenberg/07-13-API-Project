@@ -32,4 +32,9 @@ class Assignment
   def save
     return true if DATABASE.execute("UPDATE assignments SET date = '#{@date}', name = '#{@name}', description = '#{@description}', github = '#{@github}', blog = '#{@blog}' WHERE id = #{@id};") 
   end
+  
+  def hash_object
+      hash = {"id" => self.id, "date" => self.date, "name" => self.name, "description" => self.description, "github" => self.github, "blog" => self.blog}
+      return hash
+    end
 end
