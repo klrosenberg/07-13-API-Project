@@ -21,4 +21,9 @@ class Student
   def self.chart
     DATABASE.execute("SELECT students.name FROM students;")
   end
+  
+  def hash_object
+      hash = {"id" => self.id, "name" => self.name}
+      return hash
+    end
 end
