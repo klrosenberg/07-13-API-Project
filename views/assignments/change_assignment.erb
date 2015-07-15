@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignments</title>
+</head>
+<body>
+  <h2>Update Assignment</h2>
+
+  <h4>Please change the fields and submit.</h4>
+  <form action="/update_assignment/save">
+    <input type="hidden" name="id" value="<%= @assignment.id %>">
+    <p><input type="text" placeholder="Date" name="date" value="<%= @assignment.date %>"></p>
+    <p><input type="text" placeholder="Name" name="name" value="<%= @assignment.name %>"></p>
+    <p><input type="text" placeholder="Description" name="description" value="<%= @assignment.description %>"></p>
+    <p><input type="text" placeholder="Github" name="github" value="<%= @assignment.github %>"></p>
+    <p><input type="text" placeholder="Blog" name="blog" value="<%= @assignment.blog %>"></p>
+    <p><input type="submit"></p>
+    <form>
+</body>
+</html>

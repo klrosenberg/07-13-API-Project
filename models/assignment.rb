@@ -6,7 +6,7 @@ class Assignment
   include DatabaseInstanceMethods
 
   attr_reader :id 
-  attr_accessor :date, :name, :description, :github, :blog, :student_id
+  attr_accessor :date, :name, :description, :github, :blog
 
   # Instantaites a new instance of the Assignment Class.
   # 
@@ -20,7 +20,6 @@ class Assignment
     @description = options['description']
     @github = options['github']
     @blog = options['blog']
-    @student_id = options['student_id']
   end
   
   # Join github links, blog links and students tables to assignments table.
@@ -29,5 +28,8 @@ class Assignment
   def self.chart
     DATABASE.execute("SELECT assignments.date, assignments.name AS assignment, assignments.description, assignments.github, assignments.blog FROM assignments;")
   end
-
+  
+  def save
+    return true if DATABASE.execute("UPDATE assignments SET date = '#{@date}', name = '#{@name}', description = '#{@description}', github = '#{@github}', blog = '#{@blog}' WHERE id = #{@id};") 
+  end
 end

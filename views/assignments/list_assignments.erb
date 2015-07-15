@@ -12,7 +12,6 @@
       <th>Description</th>
       <th>Github</th>
       <th>Blog</th>
-      <th>Students</th>
     </tr>
     <% @assignments.each do |assignment| %>
     <tr>
@@ -21,7 +20,6 @@
       <td><%= assignment['description'] %></td>
       <td><%= assignment['github'] %></td>
       <td><%= assignment['blog'] %></td>
-      <td><%= assignment['student_id'] %></td>
     </tr>
   <% end %>
   </table>

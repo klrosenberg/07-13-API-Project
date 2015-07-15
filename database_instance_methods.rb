@@ -13,9 +13,10 @@ module DatabaseInstanceMethods
   # Saves a specific instance to the database.
   #
   # Returns boolean.
-  def save  
+  def save
     return true if DATABASE.execute("UPDATE #{table} SET name = '#{name}' WHERE id = #{@id};")
   end
+
     
   # Deletes an entry from the database.
   def delete
@@ -23,5 +24,7 @@ module DatabaseInstanceMethods
   end
   
   def hash
+    results = DATABASE.execute("SELECT * FROM #{table} WHERE id = #{@id};")
+    return results
   end
 end
