@@ -28,7 +28,6 @@ module DatabaseClassMethods
   #
   # Returns a new instance of the Class.
   def find(id)
-    table_name = self.to_s.tableize
     results = DATABASE.execute("SELECT * FROM #{table_name} WHERE id = #{id};").first
     self.new(results)
   end
@@ -39,7 +38,6 @@ module DatabaseClassMethods
   #
   # Returns an Array of Hashes.
   def select(column)
-    table_name = self.to_s.tableize
     results = DATABASE.execute("SELECT #{column} FROM #{table_name};")
     return results
   end
@@ -76,7 +74,6 @@ module DatabaseClassMethods
   #
   # Returns an Array of objects.
   def where(column_name, id)
-     table_name = self.to_s.tableize
      results = DATABASE.execute("SELECT * FROM #{table_name} WHERE #{column_name} = #{id};")
      results_as_objects = []
      results.each do |result_hash|
@@ -86,8 +83,8 @@ module DatabaseClassMethods
    end
    
    def hash
-     table_name = self.to_s.tableize
      results = DATABASE.execute("SELECT * FROM #{table_name};")
      return results
    end
  end
+ 

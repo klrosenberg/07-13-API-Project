@@ -27,11 +27,11 @@ end
 # API of all students worked with.
 # -----------------------------------------------------------------------------
 get "/api/students" do
-  students = Student.all
+  @students = Student.all
   @students_hash = []
   
   students.each do |student|
-    @students_hash << student.hash_object
+    @students_hash << @student.hash_object
   end
   json @students_hash
 end
@@ -39,7 +39,8 @@ end
 # -----------------------------------------------------------------------------
 # API of all assignments worked on with a given student.
 # -----------------------------------------------------------------------------
-get "/api/assignments/student/:id"
+get "/api/assignments/student/:id" do
+end
 
 # -----------------------------------------------------------------------------
 # Add a student to the API.
@@ -67,6 +68,9 @@ get "/api/assignments/student/:id"
 
 
 # -----------------------------------------------------------------------------
-# Remove an assignment.
+# Remove an assignment. TODO check!
 # -----------------------------------------------------------------------------
-
+get "/api/delete_assignment/:id" do
+  @assignment = Assignment.find(params["id"])
+  @assignment.delete
+end

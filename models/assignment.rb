@@ -29,15 +29,24 @@ class Assignment
     DATABASE.execute("SELECT assignments.date, assignments.name AS assignment, assignments.description, assignments.github, assignments.blog FROM assignments;")
   end
   
+  # Update an assignment.
+  #
+  # Return an updated Hash. (? TODO)
   def save
-    return true if DATABASE.execute("UPDATE assignments SET date = '#{@date}', name = '#{@name}', description = '#{@description}', github = '#{@github}', blog = '#{@blog}' WHERE id = #{@id};") 
+    return true if DATABASE.execute("UPDATE assignments SET date = '#{@date}', name = '#{@name}', description = '#{@description}', github = '#{@github}', blog = '#{@blog}' WHERE id = #{@id};")
   end
   
+  # Create hash of all instances.
+  #
+  # Returns Hash.
   def hash
-      hash = {"id" => self.id, "date" => self.date, "name" => self.name, "description" => self.description, "github" => self.github, "blog" => self.blog}
-      return hash
+    hash = {"id" => self.id, "date" => self.date, "name" => self.name, "description" => self.description, "github" => self.github, "blog" => self.blog}
+    return hash
   end
   
+  # Join sql tables. Can be used with find method to display by student id.
+  #
+  # Returns Hash of joined sql tables.
   def hash_object
     hash = DATABASE.execute("SELECT assignments.date, assignments.name AS assignments, assignments.description, assignments.github, assignments.blog, students.name FROM student_assignments JOIN assignments ON student_assignments.assignment_id = assignments.id JOIN students ON student_assignments.student_id = students.id;")
     return hash
