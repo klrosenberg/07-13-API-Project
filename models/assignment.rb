@@ -33,8 +33,13 @@ class Assignment
     return true if DATABASE.execute("UPDATE assignments SET date = '#{@date}', name = '#{@name}', description = '#{@description}', github = '#{@github}', blog = '#{@blog}' WHERE id = #{@id};") 
   end
   
-  def hash_object
+  def hash
       hash = {"id" => self.id, "date" => self.date, "name" => self.name, "description" => self.description, "github" => self.github, "blog" => self.blog}
       return hash
-    end
+  end
+  
+  def hash_object
+    hash = DATABASE.execute("SELECT assignments.date, assignments.name AS assignments, assignments.description, assignments.github, assignments.blog, students.name FROM student_assignments JOIN assignments ON student_assignments.assignment_id = assignments.id JOIN students ON student_assignments.student_id = students.id;")
+    return hash
+  end 
 end

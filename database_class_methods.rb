@@ -33,6 +33,17 @@ module DatabaseClassMethods
     self.new(results)
   end
   
+  # Select all data from a specifc column.
+  #
+  # column - String of column header
+  #
+  # Returns an Array of Hashes.
+  def select(column)
+    table_name = self.to_s.tableize
+    results = DATABASE.execute("SELECT #{column} FROM #{table_name};")
+    return results
+  end
+  
   # Adds a new row to a specified table.
   #
   # options = {} - 
@@ -66,7 +77,6 @@ module DatabaseClassMethods
   # Returns an Array of objects.
   def where(column_name, id)
      table_name = self.to_s.tableize
-     column_name = 
      results = DATABASE.execute("SELECT * FROM #{table_name} WHERE #{column_name} = #{id};")
      results_as_objects = []
      results.each do |result_hash|

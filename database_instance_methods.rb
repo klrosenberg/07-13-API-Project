@@ -23,7 +23,7 @@ module DatabaseInstanceMethods
      DATABASE.execute("DELETE FROM #{table} WHERE id = #{@id};")
   end
   
-  def hash
+  def hash_object
     results = DATABASE.execute("SELECT * FROM #{table} WHERE id = #{@id};")
     return results
   end
